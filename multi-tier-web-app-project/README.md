@@ -38,3 +38,15 @@ To set up and run the vprofile-project, you would typically:
 - [x] Start the VMs : Run `vagrant up` to start and provision the VMs as defined in the Vagrantfile.
 - [x] Access the VMs: Use `vagrant ssh <vm-name>` to access individual VMs for further configuration or troubleshooting.
 - [ ] Test the Setup: Ensure that all components are running and communicating correctly by accessing the web server and checking if the application is working as expected.
+
+## Setup each stack
+Follow the rest of the tutorial here [__VprofileProjectSetupWindowsAndMacIntel.pdf__](./VprofileProjectSetupWindowsAndMacIntel.pdf).
+
+## Vagrant commands summarized:
+```
+Start the VM: vagrant up
+Stop the VM: vagrant halt
+Suspend the VM: vagrant suspend
+Resume the VM: vagrant resume
+Destroy the VM: vagrant destroy
+```

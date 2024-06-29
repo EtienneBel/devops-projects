@@ -28,7 +28,8 @@ The Vagrantfile sets up a similar structure with :
 ## Setup and Run the Project
 To set up and run the vprofile-project, you would typically:
 
-- [x] Install VirtualBox and Vagrant on your development machine.
+- [x] Install VirtualBox and Vagrant on your development machine. [Prereqs_doc.pdf](https://github.com/user-attachments/files/16040138/Prereqs_doc.pdf)
+
 - [x] Execute below command in your computer to install hostmanager plugin
 ```
 vagrant plugin install vagrant-hostmanager

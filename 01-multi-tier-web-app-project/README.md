@@ -31,8 +31,10 @@ The architecture diagram outlines a typical multi-tier application setup with th
 3. **Message Queue (RabbitMQ)**: Handles asynchronous communication between services.
 4. **Database (MySQL)**: Stores application data.
 5. **Caching Layer (Memcached)**: Provides fast in-memory caching to improve performance.
+![image](https://github.com/user-attachments/assets/df52f605-01d2-430d-a6b0-c9168b8ca53d)
 
-![Multi-Tier Architecture](image.png)
+
+
 
 ## Getting Started
 To set up the environment locally, follow these steps:

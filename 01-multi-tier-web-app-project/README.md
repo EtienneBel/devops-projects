@@ -1,71 +1,77 @@
-# MULTI-TIER-WEB-APP-PROJECT SETUP![](Aspose.Words.727762e1-087c-4faf-8e5f-48ca293c97cf.001.png)
-This project is an __educational tool__ designed to demonstrate the integration and deployment of a multi-tier application using Vagrant. 
 
-It helps to understand how to set up and manage a complex application stack, __mimicking a real-world production environment__. 
+# Multi-Tier Web Application Setup Readme
 
-In Production, we use __Docker, Kubernetes, Ansible, Chef, Puppet, SaltStack, Terraform and Cloud Provider Tools__.
+## About the Project
+This project demonstrates the setup of a multi-tier web application stack on a local machine. It aims to simplify the process of setting up various services required for a web application, such as databases and web servers, making it repeatable and automated.
+
+## Scenario
+In many development projects, a variety of services power the application runtime, including databases like MySQL or PostgreSQL, and web services like Apache Tomcat or JBoss. Setting up these services locally can be complex, time-consuming, and hard to replicate consistently across different environments.
+
+## Problem
+Setting up a local development environment is often:
+- **Complex**: Involving multiple configurations and dependencies.
+- **Time-consuming**: Requiring manual installation and configuration.
+- **Non-repeatable**: Difficult to replicate the exact setup across different machines or environments.
+
+## Solution
+This project provides a solution to create a local setup that is:
+- **Repeatable**: Ensures consistent environments across different setups.
+- **Automated**: Reduces the manual effort required for setup.
+- **Infrastructure as Code (IaC)**: Uses code to define and manage the infrastructure.
+
+## Tools Used
+- **Hypervisor**: Oracle Virtual Machine (VirtualBox)
+- **Automation**: Vagrant
+- **CLI**: Git Bash
+
+## Architecture
+The architecture diagram outlines a typical multi-tier application setup with the following components:
+1. **Load Balancer (NGINX)**: Distributes incoming traffic to the application servers.
+2. **Application Server (Apache Tomcat)**: Hosts the web application.
+3. **Message Queue (RabbitMQ)**: Handles asynchronous communication between services.
+4. **Database (MySQL)**: Stores application data.
+5. **Caching Layer (Memcached)**: Provides fast in-memory caching to improve performance.
+
+![Multi-Tier Architecture](image.png)
+
+## Getting Started
+To set up the environment locally, follow these steps:
+
+1. **Install VirtualBox**: Download and install Oracle VirtualBox from the official website.
+2. **Install Vagrant**: Download and install Vagrant from the official website.
+3. **Set up Git Bash**: Ensure you have Git Bash installed for command line operations.
+
+Guide to install VirtualBox and Vagrant on your development machine. [Prereqs_doc.pdf](https://github.com/user-attachments/files/16040138/Prereqs_doc.pdf)
+
+## Steps to Set Up
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/EtienneBel/devops-projects/tree/master/01-multi-tier-web-app-project
+   cd 01-multi-tier-web-app-project
+   ```
+2. **Initialize Vagrant**:
+
+   This command will install hostmanager plugin.
+   ```bash
+   vagrant plugin install vagrant-hostmanager
+   ```
+   This command will spin up the virtual machines as defined in the Vagrantfile.
+   
+   ```bash
+   vagrant up
+   ```
+
+3. **Setting up each stack**:
+
+* Follow the rest of the tutorial here [__VprofileProjectSetupWindowsAndMacIntel.pdf__](./VprofileProjectSetupWindowsAndMacIntel.pdf).
+* Once the setup is complete, you can access the application through the load balancer's IP address or domain.
 
 
-## Example Scenario
+## Future Improvements
+- Integrate additional services as required by the project.
+- Enhance automation scripts for more complex setups.
+- Explore containerization solutions like Docker for an even more portable setup.
 
-In a real-world production environment, you might have:
+---
 
-- A dedicated database server running MySQL.
-- A separate server running Memcached for caching.
-- Another server for RabbitMQ handling messaging.
-- An application server running a Tomcat instance with your application.
-- A web server running Nginx serving as a reverse proxy.
-
-The Vagrantfile sets up a similar structure with :
-
-- __Nginx as Web Server :__ that acts as a reverse proxy to route requests to the application server and Serves static content.
-- __Tomcat as Application Server :__ that hosts the core application logic, typically a Java-based web application.
-- __MySQL as Database Server :__ that manages data storage and retrieval for the application.
-- __Memcached as Cache Server :__ that provides caching to improve performance by storing frequently accessed data in memory.
-- __RabbitMQ as Message Broker :__ that handles messaging and task queues, enabling asynchronous communication between different parts of the application.
-
-
-## Setup and Run the Project
-To set up and run the vprofile-project, you would typically:
-
-- [x] Install VirtualBox and Vagrant on your development machine. [Prereqs_doc.pdf](https://github.com/user-attachments/files/16040138/Prereqs_doc.pdf)
-
-- [x] Execute below command in your computer to install hostmanager plugin
-```
-vagrant plugin install vagrant-hostmanager
-```
-- [x] Clone the project repository from GitHub to your local machine.
-- [x] Open a terminal and navigate to the directory containing the Vagrantfile.
-- [x] Start the VMs : Run
-```
-vagrant up
-```
-to start and provision the VMs as defined in the Vagrantfile.
-- [x] Access the VMs: Use
-```
-vagrant ssh <vm-name>
-```
-to access individual VMs for further configuration or troubleshooting.
-- [ ] Test the Setup: Ensure that all components are running and communicating correctly by accessing the web server and checking if the application is working as expected.
-
-## Services Launched :
-* Host Machine (with Vagrant)
-* ├── VM1: web01 (Nginx, IP: 192.168.56.11)
-* ├── VM2: app01 (Tomcat, IP: 192.168.56.12)
-* ├── VM3: db01 (MySQL, IP: 192.168.56.15)
-* ├── VM4: mc01 (Memcached, IP: 192.168.56.14)
-* └── VM5: rmq01 (RabbitMQ, IP: 192.168.56.13)
-
-
-
-## Setting up each stack :
-Follow the rest of the tutorial here [__VprofileProjectSetupWindowsAndMacIntel.pdf__](./VprofileProjectSetupWindowsAndMacIntel.pdf).
-
-## Vagrant commands summarized:
-```
-Start the VM: vagrant up
-Stop the VM: vagrant halt
-Suspend the VM: vagrant suspend
-Resume the VM: vagrant resume
-Destroy the VM: vagrant destroy
-```
+This readme provides an overview of setting up a multi-tier web application stack locally, focusing on automation and repeatability. For detailed instructions and additional configurations, refer to the project documentation.

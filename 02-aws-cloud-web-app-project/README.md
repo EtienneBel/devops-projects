@@ -16,7 +16,7 @@ Previously, we deployed a Multi-Tier Web Application Stack locally. Now, we are 
 - Difficult to automate.
 - Time-consuming.
 
-## Cloud Computing Setup
+## Solution : Cloud Computing Setup
 - Pay-as-you-go model.
 - Consuming Infrastructure as a Service (IaaS).
 - Flexibility.
@@ -65,9 +65,6 @@ Previously, we deployed a Multi-Tier Web Application Stack locally. Now, we are 
 
 ## Contributing
 If you would like to contribute to this project, please submit a pull request or open an issue on GitHub.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - AWS Documentation
